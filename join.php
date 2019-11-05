@@ -1,6 +1,9 @@
 <?php
 include "header.php";
 ?>
+<?php  
+	include "connect_db.php";
+?>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -89,12 +92,12 @@ background-color: white;
 				
 			</div>
 			<div class="card-body">
-				<form>
+				<form role="joinform" action="joinProcess.php" method="post" onsubmit="return chk_input()">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">닉네임</span>
 						</div>
-						<input type="text" class="form-control" placeholder="닉네임">	
+						<input type="text" name="nickname" class="form-control" placeholder="닉네임">	
 						<input type="button" class="btn float-center login_btn"  value="중복확인">					
 					</div>
 				<hr>
@@ -102,14 +105,14 @@ background-color: white;
 						<div class="input-group-prepend">
 							<span class="input-group-text">KAKAO ID</span>
 						</div>
-						<input type="text" class="form-control" placeholder="카카오 배그 아이디">						
+						<input type="text" name="kakaoid" class="form-control" placeholder="카카오 배그 아이디">						
 					</div>
 				<hr>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">아이디</span>
 						</div>
-						<input type="text" class="form-control" placeholder="로그인 아이디">
+						<input type="text" name="userid" class="form-control" placeholder="로그인 아이디">
 						<input type="button" class="btn float-center login_btn"  value="중복확인">							
 					</div>
 					
@@ -117,32 +120,32 @@ background-color: white;
 						<div class="input-group-prepend">
 							<span class="input-group-text">비밀번호</span>
 						</div>
-						<input type="password" class="form-control" placeholder="비밀번호">
+						<input type="password" name="password" class="form-control" placeholder="비밀번호">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">비밀번호확인</span>
 						</div>
-						<input type="password" class="form-control" placeholder="비밀번호 확인">
+						<input type="password" name="password_confirm" class="form-control" placeholder="비밀번호 확인">
 					</div>
 					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">이름</span>
 						</div>
-						<input type="text" class="form-control" placeholder="이름">						
+						<input type="text" name="name" class="form-control" placeholder="이름">						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">이메일</span>
 						</div>
-						<input type="text" class="form-control" placeholder="이메일">						
+						<input type="text" name="email" class="form-control" placeholder="이메일">						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text">휴대폰번호</span>
+							<span class="input-group-text">연락처</span>
 						</div>
-						<input type="text" class="form-control" placeholder="휴대폰번호">						
+						<input type="text" name="phone" class="form-control" placeholder="연락처">						
 					</div>
 					<div class="form-group" >	
 						<input type="submit" value="가입" class="btn float-center login_btn" >					
