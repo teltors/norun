@@ -77,7 +77,7 @@ body{
 			<?php if( $userid != null){?>
 				
               <li class="nav-item">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">내정보</a>
+                <a class="nav-link " href="myinfologin.php?userid=" tabindex="-1" aria-disabled="true">내정보</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="logout.php" tabindex="-1" aria-disabled="true">로그아웃</a>
