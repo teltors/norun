@@ -18,8 +18,8 @@
 	
 if(password_verify($password, $hash_pw)) //만약 password변수와 hash_pw변수가 같다면 세션값을 저장하고 알림창을 띄운후 main.php파일로 넘어갑니다.
 	{
+	    session_start();
 		$_SESSION['userid'] = $member["userid"];
-		$_SESSION['password'] = $member["password"];
 
 		echo "<script>alert('로그인되었습니다.'); location.href='/norun/intro.php';</script>";
 	}else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다

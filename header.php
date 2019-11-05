@@ -1,9 +1,5 @@
-<?php session_start();
-       $id=session_id();
-       
-       $_SESSION['car']='bmw';
-?>
-    	
+<?php include "session_check.php";?>
+   	
     
 <!DOCTYPE html>
 <html>
@@ -78,13 +74,13 @@ body{
             <a class="nav-link" href="ranking.php">순위</a>
           </li>
           
-			<?php if( $_SESSION['car'] == 'bmw4'){?>
+			<?php if( $userid != null){?>
 				
               <li class="nav-item">
                 <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">내정보</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">로그아웃</a>
+                <a class="nav-link " href="logout.php" tabindex="-1" aria-disabled="true">로그아웃</a>
               </li>
               <?php }else{?>         
 			  <li class="nav-item">

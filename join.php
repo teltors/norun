@@ -92,13 +92,13 @@ background-color: white;
 				
 			</div>
 			<div class="card-body">
-				<form role="joinform" action="joinProcess.php" method="post" onsubmit="return chk_input()">
+				<form name="joinform" role="joinform" action="joinProcess.php" method="post" onsubmit="return chk_input()">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">닉네임</span>
 						</div>
-						<input type="text" name="nickname" class="form-control" placeholder="닉네임">	
-						<input type="button" class="btn float-center login_btn"  value="중복확인">					
+						<input type="text" name="nickname" id="nickname" class="form-control" placeholder="닉네임">	
+						<input type="button" class="btn float-center login_btn"  onclick="checknick();" value="중복확인">					
 					</div>
 				<hr>
 					<div class="input-group form-group">
@@ -112,8 +112,8 @@ background-color: white;
 						<div class="input-group-prepend">
 							<span class="input-group-text">아이디</span>
 						</div>
-						<input type="text" name="userid" class="form-control" placeholder="로그인 아이디">
-						<input type="button" class="btn float-center login_btn"  value="중복확인">							
+						<input type="text" name="userid" id="userid" class="form-control" placeholder="로그인 아이디">
+						<input type="button" class="btn float-center login_btn"  onclick="checkid();" value="중복확인">							
 					</div>
 					
 					<div class="input-group form-group">
@@ -160,3 +160,78 @@ background-color: white;
 </div>
 </body>
 </html>
+
+<script>
+    function checknick(){
+    	var nickname = document.getElementById("nickname").value;
+    	if(nickname)
+    	{
+    		url = "nicknamecheck.php?nickname="+nickname;
+    			window.open(url,"chknick","width=300,height=100");
+    		}else{
+    			alert("닉네임을 입력하세요");
+    		}
+    	}
+
+    function checkid(){
+    	var userid = document.getElementById("userid").value;
+    	if(userid)
+    	{
+    		url = "useridcheck.php?userid="+userid;
+    			window.open(url,"chknick","width=300,height=100");
+    		}else{
+    			alert("아이디를 입력하세요");
+    		}
+    	}
+</script>
+<!-- 유효성 체크 -->
+<script>
+function chk_input(){
+	 var myform = document.joinform;
+	
+	if(myform.nickname.value==""){
+		alert("닉네임을 입력하세요.");
+		myform.nickname.focus();
+		return false;
+	}	
+	// 영소문자 숫자로 4~10자
+	var regexp = /^[a-z0-0]{4,10}$/;
+	if(!regexp.test(myform.userid.value)){
+		alert('아이디는 소문자와 숫자로 4 ~ 10자입니다.');
+		myform.userid.focus();
+		return false;
+	}
+	if(myform.password.value==""){
+		alert("비밀번호를 입력하세요.");
+		myform.password.focus();
+		return false;
+	}
+	if(myform.password_confirm.value==""){
+		alert("비밀번호확인을 입력하세요.");
+		myform.password_confirm.focus();
+		return false;
+	}
+	if(myform.password.value != myform.password_confirm.value){
+		alert("비밀번호가 다릅니다.");
+		myform.password_confirm.focus();
+		myform.password_confirm.value="";
+		return false;
+	}
+	if(myform.name.value==""){
+		alert("이름을 입력하세요.");
+		myform.name.focus();
+		return false;
+	}
+	if(myform.email.value==""){
+		alert("이메일을 입력하세요.");
+		myform.email.focus();
+		return false;
+	}
+	if(myform.phone.value==""){
+		alert("연락처를 입력하세요.");
+		myform.phone.focus();
+		return false;
+	}
+	return true;
+}
+</script>

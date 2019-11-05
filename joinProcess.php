@@ -10,6 +10,33 @@ $phone=$_POST['phone'];
 $nickname=$_POST['nickname'];
 $kakaoid=$_POST['kakaoid'];
 
+//닉네임 중복체크
+$sql="select count(*) from member where nickname='$nickname'";
+$res=mysqli_query($conn,$sql);
+$rs=mysqli_fetch_array($res);
+$num=$rs[0];
+
+if($num>0){
+    echo "<script>
+		alert('존재하는 닉네임입니다.');
+		location.replace('join.php');
+		</script>";
+    exit;     //php 탈출
+}
+
+//id 중복체크
+$sql="select count(*) from member where userid='$userid'";
+$res=mysqli_query($conn,$sql);
+$rs=mysqli_fetch_array($res);
+$num=$rs[0];
+
+if($num>0){
+    echo "<script>
+		alert('존재하는 아이디입니다.');
+		location.replace('join.php');
+		</script>";
+    exit;     //php 탈출
+}
 
 //회원 추가
 $sql="insert into member(userid, password, name, email, phone, nickname, kakaoid)
@@ -25,7 +52,7 @@ if($res>0){
 }else{
     echo "<script>
 					alert('회원 등록 실패');
-					location.replace('member_form.php');
+					location.replace('join.php');
 					</script>";
 }
 
