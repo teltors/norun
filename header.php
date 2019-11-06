@@ -72,11 +72,14 @@ body{
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="ranking.php">순위</a>
+            <a class="nav-link" href="R.php">순위</a>
           </li>
           
 			<?php if( $_SESSION != null){?>
 				
+			  <li class="nav-item active">
+                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">KAKAO</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link " href="myinfologin.php" tabindex="-1" aria-disabled="true">내정보</a>
               </li>
