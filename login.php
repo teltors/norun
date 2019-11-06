@@ -113,6 +113,7 @@ margin-left: 4px;
 						</div>
 						<input type="text" class="form-control" name="userid" placeholder="아이디">
 						
+						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">

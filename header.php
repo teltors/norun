@@ -1,4 +1,4 @@
-<?php include "session_check.php";?>
+ <?php session_start();?> 
    	
     
 <!DOCTYPE html>
@@ -40,6 +40,7 @@ ul {
 
 body{
     margin-top:80px;
+    
 }
 
 
@@ -74,15 +75,15 @@ body{
             <a class="nav-link" href="ranking.php">순위</a>
           </li>
           
-			<?php if( $userid != null){?>
+			<?php if( $_SESSION != null){?>
 				
               <li class="nav-item">
-                <a class="nav-link " href="myinfologin.php?userid=" tabindex="-1" aria-disabled="true">내정보</a>
+                <a class="nav-link " href="myinfologin.php" tabindex="-1" aria-disabled="true">내정보</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="logout.php" tabindex="-1" aria-disabled="true">로그아웃</a>
               </li>
-              <?php }else{?>         
+              <?php }else {?>         
 			  <li class="nav-item">
                 <a class="nav-link" href="login.php" tabindex="-1" aria-disabled="true">로그인</a>
               </li>

@@ -1,12 +1,11 @@
+
+
 <?php
 
-if(!isset($_SESSION['userid'])){
-session_start();      
 
- $userid=$_SESSION['userid'];
-
-session_abort();
+if ($_SESSION['userid']=="tt"){
+    $_SESSION['userid']="tt";
+}else{
+    $_SESSION['userid']="test";
 }
-
-
 ?>

@@ -1,9 +1,13 @@
+
 <?php
 include "header.php";
 ?>
+
 <?php  
 	include "connect_db.php";
 ?>
+
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -195,7 +199,7 @@ function chk_input(){
 		return false;
 	}	
 	// 영소문자 숫자로 4~10자
-	var regexp = /^[a-z0-0]{4,10}$/;
+	var regexp = /^[a-z0-9]{4,10}$/;
 	if(!regexp.test(myform.userid.value)){
 		alert('아이디는 소문자와 숫자로 4 ~ 10자입니다.');
 		myform.userid.focus();

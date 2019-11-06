@@ -6,7 +6,7 @@ include "header.php";
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('./image/login.jpg');
+background-image: url('./image/soap-bubble.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -19,7 +19,7 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: 260px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -97,7 +97,7 @@ margin-left: 4px;
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>로그인</h3>
+				<h3>본인확인</h3>
 			<!-- 다른 아이디를 이용한 로그인 기능
 			 	<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
@@ -111,6 +111,7 @@ margin-left: 4px;
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
+						<input type="hidden" name="sessionid" value="<?php echo $_SESSION['userid']?>">
 						<input type="text" class="form-control" name="userid" placeholder="아이디">
 						
 					</div>
@@ -126,19 +127,19 @@ margin-left: 4px;
 					</div>
 					-->
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="Confirm" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			
-			<div class="card-footer">
-				<!--  쿠키 미구현 <div class="d-flex justify-content-center links">
+		<!-- 	<div class="card-footer">
+				 쿠키 미구현 <div class="d-flex justify-content-center links">
 					Don't have an account?<a href="#">Sign Up</a>
-				</div> -->
+				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>
 				</div>
-			</div> 
+			</div>  -->
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<?php include "session_check.php"; ?>
+
 
 <?php include "header.php" ?>
 
@@ -15,13 +15,12 @@
     //DB 회원정보 읽기
    
     
-    $sql="select * from member where userid='".$userid."'";
+    $sql="select * from member where userid='".$_SESSION['userid']."'";
     $res=mysqli_query($conn, $sql);
     
     while($rows=mysqli_fetch_array($res)){
         $no=$rows['no'];
-        $userid=$rows['userid'];
-        $password=$rows['password'];        
+        $userid=$rows['userid'];    
         $name=$rows['name'];
         $email=$rows['email'];
         $phone=$rows['phone'];
@@ -30,6 +29,12 @@
     }  
 ?>
 <style>
+    body{
+        background-color: gray;
+         text-align:center;
+         color:white;         
+    }
+    
     h2{
         margin:20px;
    }  
@@ -40,38 +45,32 @@
 	.table{
         width:400px;
         margin-left:16px;
+       
    }
    input{
         width:240px;
    }
+   
 </style>
 
 <article>
+<br>
 	<h2>회원정보</h2>
 
+<br>
 <form role="myform" action="" method="post">
 	<input type="hidden" name="no" value="<?php echo $no;?>">
 	
-<table class="table table-bordered">
+<table class="table table-bordered" style="margin-left: auto; margin-right: auto;">
+
 	<tbody>	
     	<tr>
     		<td>아이디</td>
     		<td>
-    			<input type="text" name="userid" readonly value="<?php echo $userid;?>">			
+    			<input type="text" name="userid" readonly value="<?php echo $userid;?>" disabled>			
     		</td>
     	</tr>	
-    	<tr>
-    		<td>비밀번호</td>
-    		<td>
-    			<input type="password" name="password" value="<?php echo $password;?>">
-    		</td>
-    	</tr>
-    	<tr>
-    		<td>비밀번호 확인</td>
-    		<td>
-    			<input type="password" name="password_confirm" value="<?php echo $password;?>">
-    		</td>
-    	</tr>
+    	
     	<tr>
     		<td>이름</td>
     		<td>
@@ -104,6 +103,19 @@
     	</tr>	
     	
     	<tr>
+    		<td>새 비밀번호</td>
+    		<td>
+    			<input type="password" name="password" >
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>새 비밀번호 확인</td>
+    		<td>
+    			<input type="password" name="password_confirm">
+    		</td>
+    	</tr>
+    	
+    	<tr>
     		<td colspan=2>
     			<button class="btn btn-warning">수정</button>			 
     		</td>
@@ -112,8 +124,9 @@
 </table>
 </form>
 </article>
+</body>
 
-<?php include "footer.php" ?>
+
 
 <script src="http://code.jquery.com/jquery-latest.js">
 </script>
