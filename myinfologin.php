@@ -127,7 +127,7 @@ margin-left: 4px;
 					</div>
 					-->
 					<div class="form-group">
-						<input type="submit" value="Confirm" class="btn float-right login_btn">
+						<input type="submit" value="확인" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>

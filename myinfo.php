@@ -31,7 +31,7 @@
 
 <style>
     body{
-        background-color: gray;
+         background-image: url('./image/night.jpg');
          text-align:center;
          color:white;         
     }
@@ -39,10 +39,11 @@
     h2{
         margin:20px;
    }  
-	td:nth-child(1){
-	   text-align:center;
-	   font-weight:bold;
-	}
+   td{
+   color:white;
+   text-align:center;
+   }
+	
 	.table{
         width:400px;
         margin-left:16px;
@@ -52,6 +53,14 @@
         width:240px;
    }
    
+   .login_btn{
+color: white;
+background-color: red;
+width: 150px;
+border:5 ;
+background-color: rgba(30,100,120,0.5) ;
+}
+   
 </style>
 
 <article>
@@ -59,16 +68,17 @@
 	<h2>회원정보</h2>
 
 <br>
-<form role="myform" action="modifymyinfo.php" method="post">
+<form role="myform" name="myform" action="modifymyinfo.php" method="post" onsubmit="return chk_input()">
 	<input type="hidden" name="no" value="<?php echo $no;?>">
+	<input type="hidden" name="userid" value="<?php echo $userid;?>">
 	
 <table class="table table-bordered" style="margin-left: auto; margin-right: auto;">
 
 	<tbody>	
     	<tr>
-    		<td>아이디</td>
+    		<td >아이디</td>
     		<td>
-    			<input type="text" name="userid" readonly value="<?php echo $userid;?>">			
+    			<input type="text" name="showid" value="<?php echo $userid;?>" disabled>			
     		</td>
     	</tr>	
     	
@@ -94,7 +104,7 @@
     		<td>닉네임</td>
     		<td>
     			<input type="text" name="nickname" id="nickname" value="<?php echo $nickname;?>">
-    			<input type="button" class="btn btn-warning"  onclick="checknick();" value="중복확인">	
+    			<input type="button" class="btn btn-warning"   onclick="checknick();" value="중복확인">	
     		</td>
     	</tr>	
     	<tr>
@@ -103,23 +113,17 @@
     			<input type="text" name="kakaoid" value="<?php echo $kakaoid;?>">
     		</td>
     	</tr>	
-    	
+    
     	<tr>
-    		<td>새 비밀번호</td>
-    		<td>
-    			<input type="password" name="password" >
-    		</td>
-    	</tr>
-    	<tr>
-    		<td>새 비밀번호 확인</td>
-    		<td>
-    			<input type="password" name="password_confirm">
+    		<td colspan=2>
+    			<input type="button" class="btn btn-warning" onclick="location.href='myinfoPass.php'" value="비밀번호 변경">    				 
     		</td>
     	</tr>
     	
     	<tr>
     		<td colspan=2>
-    			<button class="btn btn-warning">수정</button>			 
+    			<input type="submit" value="수정" class="btn float-center login_btn" >					
+				<input type="reset" value="취소" class="btn float-center login_btn" >	 
     		</td>
     	</tr>
 	</tbody>
@@ -140,4 +144,32 @@
     			alert("닉네임을 입력하세요");
     		}
     	}
+</script>
+
+<script>
+function chk_input(){
+	 var myform = document.myform;
+	
+	if(myform.nickname.value==""){
+		alert("닉네임을 입력하세요.");
+		myform.nickname.focus();
+		return false;
+	}
+	if(myform.name.value==""){
+		alert("이름을 입력하세요.");
+		myform.name.focus();
+		return false;
+	}
+	if(myform.email.value==""){
+		alert("이메일을 입력하세요.");
+		myform.email.focus();
+		return false;
+	}
+	if(myform.phone.value==""){
+		alert("연락처를 입력하세요.");
+		myform.phone.focus();
+		return false;
+	}
+	return true;
+}
 </script>
