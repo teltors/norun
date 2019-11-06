@@ -28,6 +28,7 @@
         $kakaoid=$rows['kakaoid'];
     }  
 ?>
+
 <style>
     body{
         background-color: gray;
@@ -58,7 +59,7 @@
 	<h2>회원정보</h2>
 
 <br>
-<form role="myform" action="" method="post">
+<form role="myform" action="modifymyinfo.php" method="post">
 	<input type="hidden" name="no" value="<?php echo $no;?>">
 	
 <table class="table table-bordered" style="margin-left: auto; margin-right: auto;">
@@ -67,14 +68,14 @@
     	<tr>
     		<td>아이디</td>
     		<td>
-    			<input type="text" name="userid" readonly value="<?php echo $userid;?>" disabled>			
+    			<input type="text" name="userid" readonly value="<?php echo $userid;?>">			
     		</td>
     	</tr>	
     	
     	<tr>
     		<td>이름</td>
     		<td>
-    			<input type="text" name="name" readonly value="<?php echo $name;?>">
+    			<input type="text" name="name"  value="<?php echo $name;?>">
     		</td>
     	</tr>
     	<tr>
@@ -92,7 +93,8 @@
     	<tr>
     		<td>닉네임</td>
     		<td>
-    			<input type="text" name="nickname" value="<?php echo $nickname;?>">
+    			<input type="text" name="nickname" id="nickname" value="<?php echo $nickname;?>">
+    			<input type="button" class="btn btn-warning"  onclick="checknick();" value="중복확인">	
     		</td>
     	</tr>	
     	<tr>
@@ -127,17 +129,15 @@
 </body>
 
 
-
-<script src="http://code.jquery.com/jquery-latest.js">
+<script>
+    function checknick(){
+    	var nickname = document.getElementById("nickname").value;
+    	if(nickname)
+    	{
+    		url = "nicknamecheck.php?nickname="+nickname;
+    			window.open(url,"chknick","width=300,height=100");
+    		}else{
+    			alert("닉네임을 입력하세요");
+    		}
+    	}
 </script>
-<SCRIPT>
-$(document).ready(function(){	
-	var formObj=$("form[role='myform']");
-
-	//수정
-	$(".btn-warning").on("click",function(){
-		formObj.attr("action","memberUpdate.php");
-		formObj.submit();
-	});		
-});
-</SCRIPT>
