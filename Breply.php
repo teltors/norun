@@ -1,6 +1,8 @@
 <?php include "header.php" ?>
 <?php 
 $p_num = $_GET['p_num'];
+$deapth=$_GET['deapth'];
+$thread=$_GET['thread'];
 ?>
 
 
@@ -134,6 +136,8 @@ if( $_SESSION == null){?>
                         </table>
  
      					<div class="view_btn">
+     							<input type="text"  name="thread" value="<?= $thread?>">
+     							<input type="text"  name="deapth" value="<?= $deapth?>">    
         				        <input type="text" name="p_num" value="<?= $p_num?>">    		
                                 <input class="view_btn1" type = "submit" value="작성">
                                 <input class="view_btn1" type="button" onclick="location.href='./Bmain.php'" value="목록으로">

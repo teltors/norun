@@ -131,7 +131,6 @@ width: 500px;
     			
     				
     				<div class="view_btn">
-    			
             				<input type="hidden" name="number" value="<?=$number?>">
                             <input class="view_btn1" type = "submit" value="수정">
                             <input class="view_btn1" type="button" onclick="location.href='./Bmain.php'" value="목록으로">

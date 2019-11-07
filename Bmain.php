@@ -74,7 +74,7 @@ border-radius: 10px;
 
 <?php
               
-                $query ="select * from board order by number desc";
+                $query ="select * from board order by thread desc";
                 $result = $conn->query($query);
                 $total = mysqli_num_rows($result);
                 
@@ -86,7 +86,7 @@ border-radius: 10px;
         <thead align = "center">
         <tr class="tr1">
         <td width = "100" align="center">번호</td>
-        <td width = "500" align = "center">제목</td>
+        <td width = "400" align = "center">제목</td>
         <td width = "100" align = "center">작성자</td>
         <td width = "200" align = "center">날짜</td>
         <td width = "150" align = "center">조회수</td>
@@ -96,6 +96,8 @@ border-radius: 10px;
         <tbody>
         <?php
                 while($rows = mysqli_fetch_assoc($result)){ //DB에 저장된 데이터 수 (열 기준)
+                    
+                    $deap = $rows['deapth'];
                         if($total%2==0){
         ?>                      <tr class = "even">
                         <?php   }
@@ -103,16 +105,26 @@ border-radius: 10px;
         ?>                      <tr>
                         <?php } ?>
                 <td width = "50" align = "center"><?php echo $total?></td>
-                <td width = "500" align = "center">
-                <a href = "Bview.php?number=<?php echo $rows['number']?>">
-                <?php echo $rows['title']?></td>
-                  <td width = "100" align = "center"><?php echo $rows['id']?></td>
+                <td width = "400" >
+                
+                <?php if ($rows['deapth'] > 0){
+                    echo "<img height=1 width=".$deap*15 .">└";?>
+                    <a href = "Bview.php?number=<?php echo $rows['number']?>"><?php echo $rows['title']?><?php echo $deap?></a>
+				</td>
+				<?php }else{?>
+				<a href = "Bview.php?number=<?php echo $rows['number']?>"><?php echo $rows['title']?></a>
+				</td>
+				<?php }?>
+                
+                <td width = "100" align = "center"><?php echo $rows['id']?></td>
                 <td width = "200" align = "center"><?php echo $rows['date']?></td>
                 <td width = "50" align = "center"><?php echo $rows['hit']?></td>
                 </tr>
         <?php
                 $total--;
                 }
+                
+                
         ?>
         </tbody>
         </table>
@@ -123,5 +135,7 @@ border-radius: 10px;
 
 </body>
 </html>
+
+
  
 

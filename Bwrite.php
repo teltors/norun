@@ -130,8 +130,7 @@ if( $_SESSION == null){?>
                 </tr>
                         </table>
  
-     					<div class="view_btn">
-        				              		
+     					<div class="view_btn">        		
                                 <input class="view_btn1" type = "submit" value="작성">
                                 <input class="view_btn1" type="button" onclick="location.href='./Bmain.php'" value="목록으로">
                       
