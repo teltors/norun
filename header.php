@@ -68,7 +68,7 @@ body{
               <a class="dropdown-item" href="Bmain.php">게시판</a>
               <a class="dropdown-item" href="gallery.php">스크린샷</a>
               <!-- nodejs이용  -->
-              <a class="dropdown-item" href="C:/nodejs/chat/index.html">실시간 채팅</a> 
+              <a class="dropdown-item" href="#" onclick="javascript:window.open('http://localhost:8005/','new','left=50, top=50, width=800, height=1000')">실시간 채팅</a> 
             </div>
           </li>
           <li class="nav-item active">

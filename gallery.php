@@ -1,7 +1,9 @@
 <?php
 include "header.php";
 ?>
-
+<div align=center>
+	<input type="button" onclick="location.href='./Gwrite.php'" value="이미지올리기" >
+</div>
 <div class="container">
 	<h2>갤러리</h2>
 	<div class="row">

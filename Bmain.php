@@ -214,8 +214,7 @@ border-radius: 10px;
   		<div class="paging">
 				<?php echo $paging ?>
 		</div>
-            
-            
+                        
 		<div class="view_btn">
             <input class="view_btn1" type="button" onclick="location.href='./Bwrite.php'" value="글쓰기">                   
         </div>
