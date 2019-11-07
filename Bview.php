@@ -122,8 +122,8 @@ width: 500px;
         <!-- MODIFY & DELETE -->
         <div class="view_btn">
         	<?php if( $_SESSION != null){?>
-        		<input type="text" value="<?php echo $rows['deapth']?>">
-        		<input type="text" value="<?php echo $rows['thread']?>">
+        		<input type="hidden" value="<?php echo $rows['deapth']?>">
+        		<input type="hidden" value="<?php echo $rows['thread']?>">
                 <button class="view_btn1" onclick="location.href='./Bmain.php'">목록으로</button>
                 <button class="view_btn1" onclick="location.href='./Breply.php?p_num=<?=$number?>&id=<?=$_SESSION['userid']?>&deapth=<?php echo $rows['deapth']?>&thread=<?php echo $rows['thread']?>'">답글쓰기</button>
                 <button class="view_btn1" onclick="location.href='./Bmodify.php?number=<?=$number?>&id=<?=$_SESSION['userid']?>'">수정</button>                

@@ -122,8 +122,8 @@ width: 500px;
     				
     				<div class="view_btn">
     			
-    						<input type="text" name="number" value="<?= $number?>">
-    						<input type="text" name="id" value="<?php echo $_SESSION['userid']?>">        			
+    						<input type="hidden" name="number" value="<?= $number?>">
+    						<input type="hidden" name="id" value="<?php echo $_SESSION['userid']?>">        			
                             <input class="view_btn1" type = "submit" value="삭제">
                             <input class="view_btn1" type="button" onclick="location.href='./Bmain.php'" value="목록으로">
                  
@@ -144,16 +144,4 @@ width: 500px;
         ?>
 
 
-<script>
-function chk_input(){
-	 var delform = document.delform;
-	
-	if(delform.pw.value==""){
-		alert("비밀번호를 입력하세요.");
-		delform.pw.focus();
-		return false;
-	}	
-	return true;
-}
-</script>
 
