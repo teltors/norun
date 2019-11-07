@@ -10,7 +10,6 @@ background-image: url('./image/soap-bubble.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Numans', sans-serif;
 }
 
 .container{
@@ -83,13 +82,9 @@ color: black;
 background-color: white;
 }
 
-.links{
-color: white;
-}
 
-.links a{
-margin-left: 4px;
-}
+
+
 </style>
 
 

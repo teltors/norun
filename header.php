@@ -65,14 +65,14 @@ body{
               커뮤니티
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">게시판</a>
+              <a class="dropdown-item" href="Bmain.php">게시판</a>
               <a class="dropdown-item" href="gallery.php">스크린샷</a>
               <!-- nodejs이용  -->
               <a class="dropdown-item" href="C:/nodejs/chat/index.html">실시간 채팅</a> 
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="R.php">순위</a>
+            <a class="nav-link" href="Rmain.php">순위</a>
           </li>
           
 			<?php if( $_SESSION != null){?>

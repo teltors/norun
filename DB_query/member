@@ -1,0 +1,13 @@
+CREATE TABLE `member` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `kakaoid` varchar(100) DEFAULT NULL,
+  `joindate` timestamp NULL DEFAULT current_timestamp(),
+  `grant_num` int(11) DEFAULT 1,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8

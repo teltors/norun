@@ -71,3 +71,4 @@ Class Player
         return $players;
     }
 }
+?>
