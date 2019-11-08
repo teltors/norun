@@ -6,12 +6,13 @@
 <head>
     <title>Untitled Document</title>
     <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 	
+    <link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css"> 
+   
 	<script>
 	/* 드롭다운 */
     $(document).ready(function () {
@@ -66,9 +67,9 @@ body{
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="Bmain.php">게시판</a>
-              <a class="dropdown-item" href="gallery.php">스크린샷</a>
+              <a class="dropdown-item" href="Gmain.php">스크린샷</a>
               <!-- nodejs이용  -->
-              <a class="dropdown-item" href="#" onclick="javascript:window.open('http://localhost:8005/','new','left=50, top=50, width=800, height=1000')">실시간 채팅</a> 
+              <a class="dropdown-item" href="#" onclick="javascript:window.open('http://192.168.0.33:8005/','new','left=50, top=50, width=800, height=1000')">실시간 채팅</a> 
             </div>
           </li>
           <li class="nav-item active">

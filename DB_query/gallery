@@ -1,0 +1,8 @@
+CREATE TABLE `gallery` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) DEFAULT NULL,
+  `file` varchar(150) NOT NULL,
+  `id` varchar(45) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8

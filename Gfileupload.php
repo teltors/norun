@@ -1,5 +1,4 @@
 
-
 <?php
 //업로드 폴더
 $path = './upload/';
@@ -49,11 +48,12 @@ if ($img_file)
 
 <?php include 'connect_db.php';
 
-$id = $_GET['id'];                       
-$title = $_GET['title'];                         
+
+$id = $_POST['id'];                       
+$title = $_POST['title'];
 $date = date('Y-m-d H:i:s');          
 
-$URL = 'Gfancy.php';                   //return URL
+$URL = 'Gmain.php';                   //return URL
 
 //글 적기
 $query = "insert into gallery (title, file, id, date)
@@ -74,3 +74,4 @@ if($result){
  
                 mysqli_close($conn);
 ?> 
+
