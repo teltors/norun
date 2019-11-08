@@ -168,7 +168,7 @@ border-radius: 10px;
         <table align = "center">
         <thead align = "center">
         <tr class="tr1">
-        <td width = "100" align="center">번호</td>
+        <td width = "100" align="center">번호2</td>
         <td width = "400" align = "center">제목</td>
         <td width = "100" align = "center">작성자</td>
         <td width = "200" align = "center">날짜</td>

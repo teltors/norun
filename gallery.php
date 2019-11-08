@@ -9,7 +9,7 @@ include "header.php";
 	<div class="row">
 		<div class="col-lg-4">
 			<a href="#" class="thumbnail">
-				<P>이미지1</P>
+				<P>이미지12</P>
 			<img src="./gallery/P1234.jpg" alt="이미지1" style="width:300px;height:250px">
 			</a>
 		</div>
