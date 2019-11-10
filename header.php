@@ -79,7 +79,7 @@ body{
 			<?php if( $_SESSION != null){?>
 				
 			  <li class="nav-item active">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">KAKAO</a>
+                <a class="nav-link " href="Kmain.php" tabindex="-1" aria-disabled="true">KAKAO</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="myinfologin.php" tabindex="-1" aria-disabled="true">내정보</a>
