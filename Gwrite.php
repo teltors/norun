@@ -1,79 +1,83 @@
 <?php include "header.php";
 ?>
+<style>
+    
+     body{
+     background-color: black;
+     text-align:center;
+     color:white;  
+     }
+  
+       
+</style>
+<!-- 이미지 미리보기 스크립트 -->
+<script src="http://madalla.kr/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+        $(function() {
+            $("#imgView").on('change', function(){
+                readURL(this);
+            });
+        });
 
-  		<h1 id="community"><div>community</div></h1>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                    $('#View').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+    </script>
+    <?php 
+$URL = "Gfancy.php";
+if( $_SESSION == null){?>
+ 				<script>
+                        alert("로그인이 필요합니다");
+                        location.replace("<?php echo $URL?>");
+                </script>
+<?php }?>
+
+<br>
   		<article>
-  			<h2>포토갤러리 업로드 </h2>
-  			<form id="upphoto" method="post" enctype='multipart/form-data' action="<?=$PHP_SELF?>">
-				<input type="hidden" name="act" value="1">
-				<input type="hidden" id="act1" name="act1" value="">
-				<div id="photoframe"> 
-					<img id="imgBG" src="./image/join.jpg" class="photoplace"> 
-				</div> 
-				<p><label>제목</label><input type="text"></p>
-				<p><label>사진 설명 </label><textarea></textarea></p>
-                <input name="" type="submit" value="전송 하기 ">
+  			<h2 align="center">사진 업로드</h2>
+  			<br>
+  			<form name="imgForm" id="imgForm" method="post" enctype='multipart/form-data' action="Gfileupload.php" onsubmit="return chk_input()">
+  				<input type="hidden" name="id" value="<?php echo $_SESSION['userid'];?>">	
+  				<p style="color:red">※이미지를 올린 후 삭제가 불가합니다. 미풍양속에 위배되는 사진을 올리시면 경고 없이 탈퇴 될 수 있습니다.</p>			 
+				 <p>사진을 간단히 표현해보세요!!&nbsp;&nbsp; <input type="text" name="title" ></p>
+				  <br>
+				  <!-- 이미지 올리기 -->
+				 <input name="img" type="file" id="imgView"/> 
+				 <input name="submit" type="submit" value="전송 하기 ">
+				  <br>
+				 <!-- 이미지 미리보기 -->
+				  <br>
+				 <div class="img_wrap">
+				 	<img id="View" src="./fancy_img/tdot.gif" alt="이미지 미리보기"/>
+				 </div>
+				 <br>
+                
 			</form>	
   		</article>
+</body>
+</html>
 
 <script>
-var dropbox = document.getElementById('imgBG'); 
-// Setup drag and drop handlers. 
-dropbox.addEventListener('dragenter', stopDefault, false); 
-dropbox.addEventListener('dragover', stopDefault, false); 
-dropbox.addEventListener('dragleave', stopDefault, false); 
-dropbox.addEventListener('drop', onDrop, false); 
-
-function stopDefault(e)  
-{ 
-  e.stopPropagation(); 
-  e.preventDefault(); 
-} 
-
-var readFileSize = 0; 
-function onDrop(e)  
-{ 
-	e.stopPropagation(); 
-	e.preventDefault(); 
-
+function chk_input(){
+	 var imgForm = document.imgForm;
 	
-	var files = e.dataTransfer.files; 	
-	file = files[0]; 
-	readFileSize += file.fileSize; 
-	fileName = file.fileName;
-	
+	if(imgForm.img.value==""){
+		alert("이미지를 등록하세요.");
+		return false;
+	}	
 
-
-// Only process image files. 
-	var imageType = /image.*/; 
-	if (!file.type.match(imageType))  
-	{ 
-		return; 
-	} 
-
-	var a = document.getElementById('act1'); 
-	var reader = new FileReader(); 
-	var fileNames="TEST";
-	fileNames = file.fileName;
-	reader.onerror = function(e)  
-	{ 
-	alert('Error code: ' + e.target.error); 
-	}; 
-
-
-	// Create a closure to capture the file information. 
-	reader.onload = (function(aFile)  
-	{	 
-		return function(evt)  
-		{ 
-			dropbox.src = evt.target.result; 
-			a.value=dropbox.src;
-		} 
-	})(file); 
-	
-	reader.readAsDataURL(file); 
-	
-		
-} 
+	return true;
+}
 </script>
-		
+
+

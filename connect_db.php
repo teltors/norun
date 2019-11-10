@@ -8,7 +8,7 @@
     //$passwdDB="123456";
     
     $conn=mysqli_connect($host,$userDB,$passwdDB) or die("mysql 실패");
-    $db=mysqli_select_db($conn,'norun');
-    
+    mysqli_select_db($conn,'norun');
+    mysqli_set_charset($conn, 'utf8');
   
 ?>
