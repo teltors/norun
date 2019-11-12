@@ -17,9 +17,10 @@ include "header.php";
 
 <style>
 body{
- background-color: black;
  text-align:center;
  color:white;  
+ min-height:100vh;
+ background-image: linear-gradient(124deg, #6a89cc, #130707);
  }
  
 .thead tr th{

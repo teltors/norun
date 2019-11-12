@@ -1,4 +1,6 @@
- <?php session_start();?> 
+ <?php 
+ session_cache_expire(14400); //세션 유지시간 60 = 1시간
+ session_start();?> 
    	
     
 <!DOCTYPE html>
