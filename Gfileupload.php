@@ -62,7 +62,7 @@ $query = "insert into gallery (title, file, id, date)
 
 $result = $conn->query($query);
 if($result){
-    ?>                  <script>
+    ?>              <script>
                         alert("<?php echo "사진이 등록되었습니다."?>");
                         location.replace("<?php echo $URL?>");
                     </script>

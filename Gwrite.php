@@ -42,12 +42,20 @@ if( $_SESSION == null){?>
                 </script>
 <?php }?>
 
+<?php 
+include "connect_db.php";
+
+    $sql = "select * from member where userid='".$_SESSION['userid']."'";
+    $result = $conn->query($sql);
+    $rows = mysqli_fetch_assoc($result);
+?>
+
 <br>
   		<article>
   			<h2 align="center">사진 업로드</h2>
   			<br>
   			<form name="imgForm" id="imgForm" method="post" enctype='multipart/form-data' action="Gfileupload.php" onsubmit="return chk_input()">
-  				<input type="hidden" name="id" value="<?php echo $_SESSION['userid'];?>">	
+  				<input type="hidden" name="id" value="<?php echo $rows['nickname']?>">	
   				<p style="color:red">※이미지를 올린 후 삭제가 불가합니다. 미풍양속에 위배되는 사진을 올리시면 경고 없이 탈퇴 될 수 있습니다.</p>			 
 				 <p>사진을 간단히 표현해보세요!!&nbsp;&nbsp; <input type="text" name="title" ></p>
 				  <br>

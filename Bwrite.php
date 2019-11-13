@@ -93,7 +93,13 @@ if( $_SESSION == null){?>
                         location.replace("<?php echo $URL?>");
                 </script>
 <?php }?>
+<?php 
+include "connect_db.php";
 
+    $sql = "select * from member where userid='".$_SESSION['userid']."'";
+    $result = $conn->query($sql);
+    $rows = mysqli_fetch_assoc($result);
+?>
 
 
 
@@ -107,7 +113,7 @@ if( $_SESSION == null){?>
                 <table class = "table2">
                         <tr>
                         <td>작성자</td>
-                        <td><input type = text name = name size=20 value="<?php echo $_SESSION['userid'];?>" readonly> </td>
+                        <td><input type = text name = name size=20 value="<?php echo $rows['nickname']?>" readonly> </td>
                         </tr>
  
                         <tr>
