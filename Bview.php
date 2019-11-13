@@ -113,8 +113,8 @@ width: 500px;
  
  
         <tr>
-                <td colspan="4" class="view_content" valign="top">
-                <?php echo $rows['content']?></td>
+                <td colspan="4" class="view_content" valign="top" style="padding: 10px">
+                <?php echo nl2br($rows['content'])?></td>
         </tr>
         </table>
    
