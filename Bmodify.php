@@ -10,7 +10,7 @@ $rows = mysqli_fetch_assoc($result);
 
 $title = $rows['title'];
 $content = $rows['content'];
-$usrid = $rows['id'];
+$nick = $rows['id'];
 
 $URL = "Bmain.php";
 
@@ -20,7 +20,7 @@ if(!isset($_SESSION['userid'])) {
                                 location.replace("<?php echo $URL?>");
                         </script>
         <?php   }
-                else if($_SESSION['userid']==$usrid) {
+                else if($_SESSION['userid']==$id) {
         ?>
         
 <style>
@@ -113,7 +113,7 @@ width: 500px;
             <table class = "table2">
             		<tr>
                     <td>작성자</td>
-                    <td><input type = text name = name size=20 value="<?php echo $_SESSION['userid'];?>" readonly></td>
+                    <td><input type = text name = name size=20 value="<?=$nick?>" readonly></td>
                     </tr>
     
                     <tr>
